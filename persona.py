@@ -1,12 +1,11 @@
 #Crear clase padre
 class Persona():
     #Constructor
-    def __init__(self, nombre, curso, codigo, profesion):
+    def __init__(self, nombre, curso, codigo):
         self.id = id
         self.nombre = nombre
         self.curso = curso
         self.codigo = codigo
-        self.profesion = profesion
 
     def getNombre(self):
         return self.nombre
@@ -22,8 +21,3 @@ class Persona():
         return self.codigo
     def setCodigo(self, codigo):
         self.codigo = codigo
-
-    def getProfesion(self):
-        return self.profesion
-    def setProfesion(self, profesion):
-        self.profesion = profesion
