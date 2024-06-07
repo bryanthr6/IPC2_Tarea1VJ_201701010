@@ -20,12 +20,12 @@ def menuPrincipal():
                     print("Saliendo........")
                     break
                 case _:
-                    print("ERROR: Ingresó un número fuera de las opciones mostradas")
-                    print("Por favor ingrese una de las opciones mostradas")
+                    print("[ERROR] Ingresó un número fuera de las opciones mostradas")
+                    print("Por favor, ingrese una de las opciones mostradas en el menu")
                     print("   ")
         except ValueError:
-            print("ERROR: Ingresó un caracter diferente a un número entero")
-            print("Por favor ingrese un número de las opciones mostradas")
+            print("[ERROR] Ingresó un caracter diferente a un número entero")
+            print("Por favor, ingrese un número entero de las opciones mostradas")
             print(" ")
 
 def menuProfe():
@@ -36,11 +36,11 @@ def menuProfe():
         print("*2. Leer Profesor                      *")
         print("*3. Actualizar Profesor                *")
         print("*4. Eliminar Profesor                  *")
-        print("*5. Regresar al MENU PRINCIPAL          *")
+        print("*5. Regresar al MENU PRINCIPAL         *")
         print("****************************************")
 
         try:
-            opcion = int(input('Ingrese una de las opciones mostradas'))
+            opcion = int(input('Ingrese una de las opciones mostradas: '))
             match opcion:
                 case 1:
                     pass
@@ -51,16 +51,48 @@ def menuProfe():
                 case 4:
                     pass
                 case 5:
-                    menuPrincipal()
+                    return #regresa el menú principal
                 case _:
-                    print("Por favor ingrese una de las opciones válidas del menú")
+                    print("[ERROR] Ingresó un número fuera de las opciones mostradas")
+                    print("Por favor, ingrese una de las opciones mostradas en el menú")
                     print(" ")
         except ValueError:
-            print("Entrada no válida. Ingrese un número entero")
+            print("[ERROR] Ingresó un caracter diferente a un número entero")
+            print("Por favor, ingrese un número entero dentro de las opciones mostradas")
             print(" ")
 
 def menuAlumno():
-    pass
+    opcion = 0
+    while True:
+        print("**************CRUD ALUMNO***************")
+        print("*1. Crear Alumno                       *")
+        print("*2. Leer Alumno                        *")
+        print("*3. Actualizar Alumno                  *")
+        print("*4. Eliminar Alumno                    *")
+        print("*5. Regresar al MENU PRINCIPAL         *")
+        print("****************************************")
+
+        try:
+            opcion = int(input('Ingrese una de las opciones mostradas: '))
+            match opcion:
+                case 1:
+                    pass
+                case 2:
+                    pass
+                case 3:
+                    pass
+                case 4:
+                    pass
+                case 5:
+                    return #Regresa al menú principal
+                case _:
+                    print("[ERROR] Ingresó un número fuera de las opciones mostradas")
+                    print("Por favor, ingrese una de las opciones mostradas en el menú")
+                    print(" ")
+        except ValueError:
+            print("[ERROR] Ingresó un caracter diferente a un número entero")
+            print("Por favor, ingrese un número entero dentro de las opciones mostradas")
+            print(" ")
 
 
 #Correr el Main
