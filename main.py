@@ -86,13 +86,13 @@ def menuAlumno():
             opcion = int(input('Ingrese una de las opciones mostradas: '))
             match opcion:
                 case 1:
-                    pass
+                    crearAlumno()
                 case 2:
-                    pass
+                    verAlumno()
                 case 3:
-                    pass
+                    editarAlumno()
                 case 4:
-                    pass
+                    eliminarAlumno()
                 case 5:
                     return #Regresa al menú principal
                 case _:
@@ -151,6 +151,7 @@ def editarProfesor():
 
     if profesor_encontrado is None:
         print("[ERROR] No se encontró un profesor con el código ingresado.")
+        print(" ")
         return
     
     nombre = input('Ingrese el NOMBRE del Profesor: ')
@@ -176,6 +177,7 @@ def eliminarProfesor():
 
     if profesor_encontrado is None:
         print("[ERROR] No se encontró un profesor con el código ingresado.")
+        print(" ")
         return
     
     profesores.remove(profesor)
@@ -183,7 +185,7 @@ def eliminarProfesor():
     print(" ")
 
 #Crear Alumnos
-def crearAlumnos():
+def crearAlumno():
     global alumnos
 
     print("*****************CREAR ALUMNO*****************")
@@ -192,13 +194,75 @@ def crearAlumnos():
     carnet = input('Ingrese el CARNET del Alumno: ')
     carrera = input('Ingrese la CARRERA del Alumno: ')
     print(" ")
+    print("¡Alumno creado correctamente!")
 
     #Teniendo los datos ingresados se procede a crear a un alumno
     nuevo = Alumno(nombre, curso, carnet, carrera)
     alumnos.append(nuevo)
-    id_personas += 1
 
 
+def verAlumno():
+    global alumnos
+    print("******************VER ALUMNOS*********************")
+    for alumno in alumnos:
+        json_string = '''
+{
+    Nombre: ''' +str(alumno.getNombre())+''',
+    Curso: ''' +str(alumno.getCurso())+''',
+    Código: ''' +str(alumno.getCodigo())+''',
+    Carrera: ''' +str(alumno.getCarrera())+'''
+
+}
+'''
+        print(json_string)
+
+
+def editarAlumno():
+    global alumnos
+    print("*************ACTUALIZAR ALUMNOS*******************")
+    codigo = input('Ingrese el carnet del estudiate: ')
+
+    #Variable nos ayuda a notificarle al usuario si se encontró el alumno con el carnet que ingresó
+    alumno_encontrado = None
+    for alumno in alumnos:
+        if alumno.getCodigo() == codigo:
+            alumno_encontrado = alumno
+            break
+    if alumno_encontrado is None:
+        print("[ERROR] No se encontró un alumno con el carnet ingresado.")
+        print(" ")
+        return
+    
+    nombre = input('Ingrese el NOMBRE del Estudiante: ')
+    curso = input('Ingrese el CURSO del Estudiante: ')
+    carrera = input('Ingrese la CARRERA del Estudiante: ')
+    alumno_encontrado.setNombre(nombre)
+    alumno_encontrado.setCurso(curso)
+    alumno_encontrado.setCarrera(carrera)
+    print("Se Acutalizaron los datos del Alumno.")
+    print(" ")
+
+def eliminarAlumno():
+    global alumnos
+    print("***************ELIMINAR ALUMNOS***************")
+    codigo = input('Ingrese el carnet del estudiante: ')
+
+    #Variable nos ayuda a notificarle al usuario si se encontró el alumno con el carnet que ingresó
+    alumno_encontrado = None
+    for alumno in alumnos:
+        if alumno.getCodigo() == codigo:
+            alumno_encontrado = alumno
+            break
+
+    if alumno_encontrado is None:
+        print("[ERROR] No se encontró un alumno con el carnet ingresado.")
+        print(" ")
+        return
+    
+    alumnos.remove(alumno)
+    print("Se eliminó el alumno correctamente. ")
+    print(" ")
+    
 
 #Correr el Main
 if __name__=="__main__":
