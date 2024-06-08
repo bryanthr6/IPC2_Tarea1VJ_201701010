@@ -106,11 +106,9 @@ def menuAlumno():
 
 #Crear Profesores
 def crearProfesor():
-    global id_personas
     global profesores
 
     print("*****************CREAR PROFESOR*****************")
-    id = id_personas
     nombre = input('Ingrese el NOMBRE del profesor: ')
     curso = input('Ingrese el CURSO que imparte: ')
     codigo = input('Ingrese el CÓDIGO del profesor: ')
@@ -121,7 +119,6 @@ def crearProfesor():
     #Teniendo los datos ingresados se procede a crear a un profesor
     nuevo = Profesor(nombre, curso, codigo, profesion)
     profesores.append(nuevo)
-    id_personas += 1
 
 #Mostrar la lista de profesores
 def verProfesor():
@@ -187,11 +184,9 @@ def eliminarProfesor():
 
 #Crear Alumnos
 def crearAlumnos():
-    global id_personas
     global alumnos
 
     print("*****************CREAR ALUMNO*****************")
-    id = id_personas
     nombre = input('Ingrese el NOMBRE del alumno: ')
     curso = input('Ingrese el CURSO del Alumno: ')
     carnet = input('Ingrese el CARNET del Alumno: ')
